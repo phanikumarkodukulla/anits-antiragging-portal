@@ -1,0 +1,76 @@
+# ANITS Anti-Ragging Portal - Requirements
+
+## Prerequisites
+- Node.js (v14.x or higher)
+- npm (v6.x or higher)
+- MongoDB Atlas account or local MongoDB installation
+- Git
+
+## Environment Setup
+1. Clone the repository
+2. Install dependencies: npm install
+3. Configure environment variables in .env file
+4. Start the server: npm start or node server.js
+
+## npm Dependencies
+The following packages are required (installed via package.json):
+
+### Core Framework
+- express: ^4.18.2 - Web application framework
+- ejs: ^3.1.9 - Templating engine
+
+### Database
+- mongoose: ^7.0.0 - MongoDB object modeling
+- mongodb: ^5.0.0 - MongoDB driver
+
+### Session & Authentication
+- express-session: ^1.17.3 - Session middleware
+- bcryptjs: ^2.4.3 - Password hashing
+- connect-mongo: ^5.0.0 - MongoDB session store
+
+### File Handling
+- multer: ^1.4.5-lts.1 - File upload middleware
+- cloudinary: ^1.37.0 - Cloud storage for images/files
+
+### Email Services
+- nodemailer: ^6.9.1 - Email sending
+
+### Security
+- helmet: ^7.0.0 - Security headers
+- express-validator: ^7.0.1 - Input validation
+- express-rate-limit: ^6.7.0 - Rate limiting
+- cors: ^2.8.5 - Cross-origin resource sharing
+
+### Utilities
+- dotenv: ^16.0.3 - Environment variable management
+- morgan: ^1.10.0 - HTTP request logger
+- body-parser: ^1.20.2 - Request body parsing
+
+## Environment Variables Required
+Create a .env file with:
+- PORT=3000
+- NODE_ENV=development
+- MONGODB_URI=<your_mongodb_connection_string>
+- SESSION_SECRET=<your_session_secret>
+- EMAIL_SERVICE=gmail
+- EMAIL_USER=<your_email>
+- EMAIL_PASS=<your_email_app_password>
+- ALERT_EMAIL=<admin_email>
+
+## Database Collections
+- users
+- complaints
+- sosAlerts
+- activityLogs
+- admins
+
+## Browser Compatibility
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Additional Requirements
+- Bootstrap 5.3.2 (CDN)
+- Font Awesome 6.5.1 (CDN)
+- Modern web browser with JavaScript enabled

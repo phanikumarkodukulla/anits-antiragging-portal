@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="fas fa-shield-alt"></i> Anti-Ragging Portal
+        </a>
+        <a href="/" class="btn btn-outline-light btn-sm">
+          <i class="fas fa-arrow-left me-2"></i>Back to Home
+        </a>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white py-3">
+              <h3 class="mb-0">
+                <i class="fas fa-search me-2"></i>Track Your Complaint
+              </h3>
+            </div>
+            <div class="card-body p-4">
+              <% if (error) { %>
+              <div class="alert alert-danger alert-dismissible fade show">
+                <i class="fas fa-exclamation-circle me-2"></i><%= error %>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                ></button>
+              </div>
+              <% } %>
+
+              <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                Enter your Complaint ID to check the current status and any
+                updates.
+              </div>
+
+              <form action="/complaint/track" method="POST">
+                <div class="mb-4">
+                  <label class="form-label fw-bold">Complaint ID</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-lg text-center font-monospace"
+                    name="complaintId"
+                    placeholder="e.g., CMP-ABC123-XYZ"
+                    value="<%= complaint ? complaint.complaintId : '' %>"
+                    required
+                    autofocus
+                  />
+                  <small class="form-text text-muted">
+                    This ID was provided when you submitted your complaint
+                  </small>
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-search me-2"></i>Track Complaint
+                  </button>
+                </div>
+              </form>
+
+              <% if (complaint) { %>
+              <hr class="my-4" />
+
+              <!-- Complaint Status -->
+              <div
+                class="alert alert-<%= complaint.status === 'Resolved' ? 'success' : complaint.status === 'In Review' ? 'info' : 'warning' %> text-center"
+              >
+                <h4 class="alert-heading">
+                  <% if (complaint.status === 'Resolved') { %>
+                  <i class="fas fa-check-circle me-2"></i>Resolved <% } else if
+                  (complaint.status === 'In Review') { %>
+                  <i class="fas fa-eye me-2"></i>In Review <% } else { %>
+                  <i class="fas fa-clock me-2"></i>Pending <% } %>
+                </h4>
+                <p class="mb-0">
+                  Current Status: <strong><%= complaint.status %></strong>
+                </p>
+              </div>
+
+              <!-- Complaint Details -->
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold mb-3">
+                    <i class="fas fa-file-alt me-2"></i>Complaint Details
+                  </h5>
+
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <strong
+                        ><i class="fas fa-heading text-primary me-2"></i
+                        >Title:</strong
+                      >
+                      <p class="mb-0"><%= complaint.title %></p>
+                    </div>
+
+                    <div class="col-md-6">
+                      <strong
+                        ><i class="fas fa-flag text-warning me-2"></i
+                        >Severity:</strong
+                      >
+                      <p class="mb-0">
+                        <span
+                          class="badge bg-<%= complaint.severity === 'High' ? 'danger' : complaint.severity === 'Medium' ? 'warning' : 'info' %>"
+                        >
+                          <%= complaint.severity %>
+                        </span>
+                      </p>
+                    </div>
+
+                    <div class="col-md-6">
+                      <strong
+                        ><i class="fas fa-calendar text-success me-2"></i
+                        >Submitted:</strong
+                      >
+                      <p class="mb-0">
+                        <%= new Date(complaint.createdAt).toLocaleDateString()
+                        %>
+                      </p>
+                    </div>
+
+                    <div class="col-md-6">
+                      <strong
+                        ><i class="fas fa-clock text-info me-2"></i>Last
+                        Updated:</strong
+                      >
+                      <p class="mb-0">
+                        <%= new Date(complaint.updatedAt).toLocaleDateString()
+                        %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Taken Report (if available) -->
+              <% if (complaint.actionTakenReport) { %>
+              <div class="card border-success mb-3">
+                <div class="card-header bg-success text-white">
+                  <h6 class="mb-0">
+                    <i class="fas fa-clipboard-check me-2"></i>Action Taken
+                    Report
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0"><%= complaint.actionTakenReport %></p>
+                </div>
+              </div>
+              <% } %>
+
+              <!-- Public Remarks (if available) -->
+              <% if (complaint.publicRemarks) { %>
+              <div class="card border-info mb-3">
+                <div class="card-header bg-info text-white">
+                  <h6 class="mb-0">
+                    <i class="fas fa-comment me-2"></i>Remarks
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0"><%= complaint.publicRemarks %></p>
+                </div>
+              </div>
+              <% } %>
+
+              <!-- Status Timeline -->
+              <div class="card">
+                <div class="card-body">
+                  <h6 class="fw-bold mb-3">
+                    <i class="fas fa-tasks me-2"></i>Status Timeline
+                  </h6>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text-center flex-fill">
+                      <div class="mb-2">
+                        <i
+                          class="fas fa-check-circle fa-2x <%= complaint.status !== 'Pending' ? 'text-success' : 'text-muted' %>"
+                        ></i>
+                      </div>
+                      <small class="fw-bold">Submitted</small>
+                    </div>
+                    <div
+                      class="flex-fill border-top border-2 border-<%= complaint.status !== 'Pending' ? 'success' : 'muted' %>"
+                    ></div>
+                    <div class="text-center flex-fill">
+                      <div class="mb-2">
+                        <i
+                          class="fas fa-eye fa-2x <%= complaint.status === 'In Review' || complaint.status === 'Resolved' ? 'text-info' : 'text-muted' %>"
+                        ></i>
+                      </div>
+                      <small class="fw-bold">In Review</small>
+                    </div>
+                    <div
+                      class="flex-fill border-top border-2 border-<%= complaint.status === 'Resolved' ? 'success' : 'muted' %>"
+                    ></div>
+                    <div class="text-center flex-fill">
+                      <div class="mb-2">
+                        <i
+                          class="fas fa-check-double fa-2x <%= complaint.status === 'Resolved' ? 'text-success' : 'text-muted' %>"
+                        ></i>
+                      </div>
+                      <small class="fw-bold">Resolved</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <a href="/" class="btn btn-outline-primary">
+              <i class="fas fa-home me-2"></i>Return to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white py-3 mt-5">
+      <div class="container text-center">
+        <p class="mb-0">&copy; 2024 Anti-Ragging Portal</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

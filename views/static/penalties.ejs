@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="student-page">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="fas fa-shield-alt"></i> Anti-Ragging Portal
+        </a>
+        <a href="/" class="btn btn-outline-light btn-sm">
+          <i class="fas fa-arrow-left me-2"></i>Back to Home
+        </a>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="card shadow-lg border-0">
+            <div class="card-header bg-danger text-white py-4">
+              <h2 class="mb-0">
+                <i class="fas fa-gavel me-2"></i>Anti-Ragging Penalties &
+                Punishments
+              </h2>
+            </div>
+            <div class="card-body p-5">
+              <div class="alert alert-danger mb-4">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>Zero Tolerance Policy:</strong> Our institution has a
+                strict zero-tolerance policy towards ragging.
+              </div>
+
+              <h4 class="fw-bold text-danger mb-3">Legal Provisions</h4>
+              <p>
+                Ragging is a criminal offense under Indian law. The following
+                acts govern anti-ragging measures:
+              </p>
+              <ul>
+                <li>
+                  <strong>UGC Regulations 2009:</strong> Prevention and
+                  Prohibition of Ragging in Higher Educational Institutions
+                </li>
+                <li>
+                  <strong>Supreme Court Directive:</strong> Mandatory compliance
+                  with anti-ragging measures
+                </li>
+                <li>
+                  <strong>IPC Sections:</strong> Various sections applicable
+                  based on severity of offense
+                </li>
+              </ul>
+
+              <hr class="my-4" />
+
+              <h4 class="fw-bold text-danger mb-3">
+                Punishments at Institution Level
+              </h4>
+
+              <div class="accordion" id="punishmentAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#minor"
+                    >
+                      <i
+                        class="fas fa-exclamation-circle text-warning me-2"
+                      ></i>
+                      <strong>For Minor Offenses</strong>
+                    </button>
+                  </h2>
+                  <div
+                    id="minor"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#punishmentAccordion"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>Written apology to the victim</li>
+                        <li>Community service</li>
+                        <li>Suspension from classes for specific period</li>
+                        <li>Withholding scholarship/fellowship</li>
+                        <li>Debarring from representing institution</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#major"
+                    >
+                      <i
+                        class="fas fa-exclamation-triangle text-danger me-2"
+                      ></i>
+                      <strong>For Major Offenses</strong>
+                    </button>
+                  </h2>
+                  <div
+                    id="major"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#punishmentAccordion"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>
+                          Suspension from the institution for specific period
+                        </li>
+                        <li>
+                          Rustication from the institution for one or more
+                          semesters
+                        </li>
+                        <li>
+                          Expulsion from the institution and debarring from
+                          admission to any other institution
+                        </li>
+                        <li>Cancellation of admission</li>
+                        <li>Withholding results</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#criminal"
+                    >
+                      <i class="fas fa-handcuffs text-dark me-2"></i>
+                      <strong>Criminal Proceedings</strong>
+                    </button>
+                  </h2>
+                  <div
+                    id="criminal"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#punishmentAccordion"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>
+                          <strong>Imprisonment:</strong> Up to 3 years for
+                          severe cases
+                        </li>
+                        <li>
+                          <strong>Fine:</strong> Up to ₹25,000 or as per court
+                          decision
+                        </li>
+                        <li>
+                          <strong>Criminal Record:</strong> Permanent criminal
+                          record affecting future prospects
+                        </li>
+                        <li>
+                          <strong>FIR Filing:</strong> Mandatory filing of FIR
+                          in serious cases
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <h4 class="fw-bold text-danger mb-3">
+                What Constitutes Ragging?
+              </h4>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="card border-danger">
+                    <div class="card-body">
+                      <h6 class="fw-bold">Physical Ragging:</h6>
+                      <ul class="small mb-0">
+                        <li>Assault, physical harm</li>
+                        <li>Forced physical exercises</li>
+                        <li>Stripping or forcing obscene acts</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card border-danger">
+                    <div class="card-body">
+                      <h6 class="fw-bold">Verbal/Mental Ragging:</h6>
+                      <ul class="small mb-0">
+                        <li>Teasing, abusing, threatening</li>
+                        <li>Asking to do menial tasks</li>
+                        <li>Psychological pressure</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card border-danger">
+                    <div class="card-body">
+                      <h6 class="fw-bold">Cyber Ragging:</h6>
+                      <ul class="small mb-0">
+                        <li>Online harassment</li>
+                        <li>Sharing morphed images</li>
+                        <li>Bullying on social media</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card border-danger">
+                    <div class="card-body">
+                      <h6 class="fw-bold">Sexual Harassment:</h6>
+                      <ul class="small mb-0">
+                        <li>Any form of sexual abuse</li>
+                        <li>Obscene gestures/comments</li>
+                        <li>Inappropriate touching</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="alert alert-warning mt-4">
+                <h6 class="fw-bold">
+                  <i class="fas fa-info-circle me-2"></i>Remember:
+                </h6>
+                <ul class="mb-0 small">
+                  <li>Ragging is NOT a tradition - it's a CRIME</li>
+                  <li>Silence is NOT an option - REPORT immediately</li>
+                  <li>
+                    You are protected - your identity will be kept confidential
+                  </li>
+                  <li>
+                    No student shall be allowed to graduate if found guilty of
+                    ragging
+                  </li>
+                </ul>
+              </div>
+
+              <div class="text-center mt-4">
+                <a href="/complaint/submit" class="btn btn-danger btn-lg">
+                  <i class="fas fa-file-alt me-2"></i>Report a Ragging Incident
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white py-3 mt-5">
+      <div class="container text-center">
+        <p class="mb-0">&copy; 2024 Anti-Ragging Portal</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
