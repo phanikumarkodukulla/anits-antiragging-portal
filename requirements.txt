@@ -1,9 +1,0 @@
-express
-ejs
-mongoose
-express-session
-bcryptjs
-multer
-nodemailer
-dotenv
-body-parser
