@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+        padding: 4rem 0;
+        color: white;
+      }
+      .icon-box {
+        width: 70px;
+        height: 70px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .member-card {
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        border-left: 4px solid var(--primary-blue);
+      }
+      .member-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(42, 89, 155, 0.15) !important;
+      }
+      .chairperson-card {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        border-left: 5px solid var(--primary-blue);
+      }
+    </style>
+  </head>
+  <body class="student-page">
+    <%- include('../partials/navbar', { currentPage: 'committee' }) %>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mx-auto text-center">
+            <div class="mb-4">
+              <i class="fas fa-users fa-4x" style="opacity: 0.9"></i>
+            </div>
+            <h1 class="display-4 fw-bold mb-3">Anti-Ragging Committee</h1>
+            <p class="lead mb-0">Ensuring Your Safety & Well-being</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <!-- About Committee Alert -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div
+            class="alert border-0 shadow-sm d-flex align-items-center"
+            style="
+              border-radius: 15px;
+              background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            "
+          >
+            <div class="icon-box me-4" style="background: white">
+              <i
+                class="fas fa-info-circle"
+                style="color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div>
+              <h5
+                class="alert-heading fw-bold mb-2"
+                style="color: var(--primary-blue)"
+              >
+                About the Committee
+              </h5>
+              <p class="mb-0 text-dark">
+                The Anti-Ragging Committee is constituted to monitor, oversee,
+                and address ragging incidents in the institution. We work round
+                the clock to ensure a safe campus environment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chairperson -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h3 class="fw-bold mb-4 text-center">
+            <i class="fas fa-award me-2" style="color: var(--primary-blue)"></i
+            >Committee Leadership
+          </h3>
+
+          <div
+            class="card chairperson-card border-0 shadow-lg"
+            style="border-radius: 15px"
+          >
+            <div class="card-body p-4">
+              <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                  <div
+                    class="icon-box mx-auto"
+                    style="
+                      background: white;
+                      width: 80px;
+                      height: 80px;
+                      font-size: 2.5rem;
+                    "
+                  >
+                    <i
+                      class="fas fa-user-tie"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <h4 class="fw-bold mb-1" style="color: var(--primary-blue)">
+                    Dr. Rajesh Kumar
+                  </h4>
+                  <p class="text-muted mb-3 fw-semibold">
+                    Chairperson - Anti-Ragging Committee
+                  </p>
+                  <div class="row">
+                    <div class="col-md-6 mb-2">
+                      <i class="fas fa-phone text-success me-2"></i>
+                      <a href="tel:+919876543210" class="text-decoration-none"
+                        >+91-9876-543210</a
+                      >
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <i
+                        class="fas fa-envelope me-2"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                      <a
+                        href="mailto:chairperson.arc@college.edu"
+                        class="text-decoration-none"
+                        >chairperson.arc@college.edu</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty Members -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h4 class="fw-bold mb-4" style="color: var(--primary-blue)">
+            <i class="fas fa-chalkboard-teacher me-2"></i>Faculty Members
+          </h4>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card member-card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #e3f2fd 0%,
+                          #bbdefb 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i
+                        class="fas fa-user-circle"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Prof. Priya Sharma</h6>
+                      <small class="text-muted">Dean Student Welfare</small>
+                    </div>
+                  </div>
+                  <p class="mb-2">
+                    <i class="fas fa-phone text-success me-2"></i>
+                    <a
+                      href="tel:+919876543211"
+                      class="text-decoration-none small"
+                      >+91-9876-543211</a
+                    >
+                  </p>
+                  <p class="mb-0">
+                    <i
+                      class="fas fa-envelope me-2"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                    <a
+                      href="mailto:dean@college.edu"
+                      class="text-decoration-none small"
+                      >dean@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card member-card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #e3f2fd 0%,
+                          #bbdefb 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i
+                        class="fas fa-user-circle"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Dr. Anil Verma</h6>
+                      <small class="text-muted">Head - Department of CSE</small>
+                    </div>
+                  </div>
+                  <p class="mb-2">
+                    <i class="fas fa-phone text-success me-2"></i>
+                    <a
+                      href="tel:+919876543212"
+                      class="text-decoration-none small"
+                      >+91-9876-543212</a
+                    >
+                  </p>
+                  <p class="mb-0">
+                    <i
+                      class="fas fa-envelope me-2"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                    <a
+                      href="mailto:hod.cse@college.edu"
+                      class="text-decoration-none small"
+                      >hod.cse@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card member-card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #e3f2fd 0%,
+                          #bbdefb 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i
+                        class="fas fa-user-circle"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Dr. Sunita Rao</h6>
+                      <small class="text-muted">Women's Cell Coordinator</small>
+                    </div>
+                  </div>
+                  <p class="mb-2">
+                    <i class="fas fa-phone text-success me-2"></i>
+                    <a
+                      href="tel:+919876543213"
+                      class="text-decoration-none small"
+                      >+91-9876-543213</a
+                    >
+                  </p>
+                  <p class="mb-0">
+                    <i
+                      class="fas fa-envelope me-2"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                    <a
+                      href="mailto:womencell@college.edu"
+                      class="text-decoration-none small"
+                      >womencell@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card member-card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #e3f2fd 0%,
+                          #bbdefb 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i
+                        class="fas fa-user-circle"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Prof. Ramesh Singh</h6>
+                      <small class="text-muted">Faculty Representative</small>
+                    </div>
+                  </div>
+                  <p class="mb-2">
+                    <i class="fas fa-phone text-success me-2"></i>
+                    <a
+                      href="tel:+919876543214"
+                      class="text-decoration-none small"
+                      >+91-9876-543214</a
+                    >
+                  </p>
+                  <p class="mb-0">
+                    <i
+                      class="fas fa-envelope me-2"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                    <a
+                      href="mailto:ramesh.s@college.edu"
+                      class="text-decoration-none small"
+                      >ramesh.s@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hostel Representatives -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h4 class="fw-bold mb-4" style="color: var(--primary-blue)">
+            <i class="fas fa-building me-2"></i>Hostel Representatives
+          </h4>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div
+                class="card member-card border-0 shadow-sm h-100"
+                style="border-left-color: #ffc107 !important"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #fff3cd 0%,
+                          #ffeaa7 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i class="fas fa-building text-warning"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Mr. Vikram Patel</h6>
+                      <small class="text-muted"
+                        >Chief Warden - Boys Hostel</small
+                      >
+                    </div>
+                  </div>
+                  <p class="mb-2">
+                    <i class="fas fa-phone text-success me-2"></i>
+                    <a
+                      href="tel:+918765432109"
+                      class="text-decoration-none small"
+                      >+91-8765-432109</a
+                    >
+                  </p>
+                  <p class="mb-0">
+                    <i class="fas fa-envelope text-warning me-2"></i>
+                    <a
+                      href="mailto:warden.boys@college.edu"
+                      class="text-decoration-none small"
+                      >warden.boys@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div
+                class="card member-card border-0 shadow-sm h-100"
+                style="border-left-color: #ffc107 !important"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #fff3cd 0%,
+                          #ffeaa7 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i class="fas fa-building text-warning"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Mrs. Kavita Desai</h6>
+                      <small class="text-muted"
+                        >Chief Warden - Girls Hostel</small
+                      >
+                    </div>
+                  </div>
+                  <p class="mb-2">
+                    <i class="fas fa-phone text-success me-2"></i>
+                    <a
+                      href="tel:+918765432110"
+                      class="text-decoration-none small"
+                      >+91-8765-432110</a
+                    >
+                  </p>
+                  <p class="mb-0">
+                    <i class="fas fa-envelope text-warning me-2"></i>
+                    <a
+                      href="mailto:warden.girls@college.edu"
+                      class="text-decoration-none small"
+                      >warden.girls@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Representatives -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h4 class="fw-bold mb-4" style="color: var(--primary-blue)">
+            <i class="fas fa-user-graduate me-2"></i>Student Representatives
+          </h4>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div
+                class="card border-0 shadow-sm text-center h-100"
+                style="border-radius: 15px; border-top: 4px solid #28a745"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mx-auto mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4edda 0%,
+                        #c3e6cb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-user-graduate text-success"></i>
+                  </div>
+                  <h6 class="fw-bold mb-2">Rahul Mehta</h6>
+                  <small class="text-muted d-block mb-3"
+                    >Student Council President</small
+                  >
+                  <p class="small mb-0">
+                    <i class="fas fa-envelope text-success me-2"></i>
+                    <a
+                      href="mailto:student.rep1@college.edu"
+                      class="text-decoration-none"
+                      >student.rep1@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div
+                class="card border-0 shadow-sm text-center h-100"
+                style="border-radius: 15px; border-top: 4px solid #28a745"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mx-auto mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4edda 0%,
+                        #c3e6cb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-user-graduate text-success"></i>
+                  </div>
+                  <h6 class="fw-bold mb-2">Neha Kapoor</h6>
+                  <small class="text-muted d-block mb-3"
+                    >Women's Representative</small
+                  >
+                  <p class="small mb-0">
+                    <i class="fas fa-envelope text-success me-2"></i>
+                    <a
+                      href="mailto:student.rep2@college.edu"
+                      class="text-decoration-none"
+                      >student.rep2@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div
+                class="card border-0 shadow-sm text-center h-100"
+                style="border-radius: 15px; border-top: 4px solid #28a745"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mx-auto mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4edda 0%,
+                        #c3e6cb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-user-graduate text-success"></i>
+                  </div>
+                  <h6 class="fw-bold mb-2">Arjun Reddy</h6>
+                  <small class="text-muted d-block mb-3"
+                    >Hostel Representative</small
+                  >
+                  <p class="small mb-0">
+                    <i class="fas fa-envelope text-success me-2"></i>
+                    <a
+                      href="mailto:student.rep3@college.edu"
+                      class="text-decoration-none"
+                      >student.rep3@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- External Members -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h4 class="fw-bold mb-4" style="color: var(--primary-blue)">
+            <i class="fas fa-user-tie me-2"></i>External Members
+          </h4>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div
+                class="card member-card border-0 shadow-sm h-100"
+                style="border-left-color: #dc3545 !important"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #f8d7da 0%,
+                          #f5c6cb 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i class="fas fa-balance-scale text-danger"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Adv. Suresh Kumar</h6>
+                      <small class="text-muted">Legal Advisor</small>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    <i class="fas fa-envelope text-danger me-2"></i>
+                    <a
+                      href="mailto:legal.advisor@college.edu"
+                      class="text-decoration-none small"
+                      >legal.advisor@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div
+                class="card member-card border-0 shadow-sm h-100"
+                style="border-left-color: #dc3545 !important"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #f8d7da 0%,
+                          #f5c6cb 100%
+                        );
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.8rem;
+                      "
+                    >
+                      <i class="fas fa-brain text-danger"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">Dr. Meena Iyer</h6>
+                      <small class="text-muted">Counselling Psychologist</small>
+                    </div>
+                  </div>
+                  <p class="mb-0">
+                    <i class="fas fa-envelope text-danger me-2"></i>
+                    <a
+                      href="mailto:counsellor@college.edu"
+                      class="text-decoration-none small"
+                      >counsellor@college.edu</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Committee Functions -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div
+            class="card border-0 shadow-lg"
+            style="border-radius: 20px; overflow: hidden"
+          >
+            <div
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue) 0%,
+                  #1e4d7b 100%
+                );
+                padding: 2rem;
+              "
+            >
+              <h3 class="text-white fw-bold mb-0">
+                <i class="fas fa-tasks me-2"></i>Committee Functions
+              </h3>
+            </div>
+            <div class="card-body p-4">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">
+                      Monitor and oversee all anti-ragging activities
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">
+                      Receive and investigate ragging complaints
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">
+                      Conduct surprise inspections in hostels and campus
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">
+                      Recommend disciplinary action against offenders
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">
+                      Organize awareness programs and workshops
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">
+                      Maintain records of complaints and actions taken
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">
+                      Coordinate with local authorities when necessary
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="d-flex align-items-start p-3 rounded"
+                    style="background: #f8f9fa"
+                  >
+                    <i
+                      class="fas fa-check-circle me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.2rem"
+                    ></i>
+                    <p class="mb-0">Review and update anti-ragging policies</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anti-Ragging Squad -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h3
+            class="fw-bold mb-4 text-center"
+            style="color: var(--primary-blue)"
+          >
+            <i class="fas fa-shield-alt me-2"></i>Anti-Ragging Squad
+          </h3>
+          <p class="text-center text-muted mb-4">
+            A dedicated Anti-Ragging Squad conducts regular patrols and surprise
+            checks:
+          </p>
+
+          <div
+            class="card border-0 shadow-sm"
+            style="
+              border-radius: 15px;
+              background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            "
+          >
+            <div class="card-body p-4">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-clock me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">Daily Patrols</h6>
+                      <p class="mb-0 small text-muted">
+                        Morning, afternoon, and night rounds
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-map-marker-alt me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">Hotspots Monitoring</h6>
+                      <p class="mb-0 small text-muted">
+                        Special attention to hostels, canteens, and isolated
+                        areas
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-search me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">Surprise Checks</h6>
+                      <p class="mb-0 small text-muted">
+                        Unannounced visits to prevent ragging
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-video me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">CCTV Monitoring</h6>
+                      <p class="mb-0 small text-muted">
+                        24/7 surveillance of key areas
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-bolt me-3 mt-1"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <h6 class="fw-bold mb-1">Rapid Response</h6>
+                      <p class="mb-0 small text-muted">
+                        Quick action on complaints and alerts
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div
+            class="card border-0 shadow-sm"
+            style="
+              border-radius: 15px;
+              background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            "
+          >
+            <div class="card-body p-4">
+              <h5 class="fw-bold mb-3" style="color: var(--primary-blue)">
+                <i class="fas fa-phone-alt me-2"></i>Need to Contact the
+                Committee?
+              </h5>
+              <p class="mb-3">
+                You can reach the Anti-Ragging Committee through:
+              </p>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-3 bg-white rounded">
+                    <i
+                      class="fas fa-envelope me-3"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <small class="text-muted d-block">Email</small>
+                      <a
+                        href="mailto:antiragging@college.edu"
+                        class="fw-semibold text-decoration-none"
+                        >antiragging@college.edu</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-3 bg-white rounded">
+                    <i
+                      class="fas fa-phone me-3"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <small class="text-muted d-block">24/7 Helpline</small>
+                      <a
+                        href="tel:+911234567890"
+                        class="fw-semibold text-decoration-none"
+                        >+91-1234-567890</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-3 bg-white rounded">
+                    <i
+                      class="fas fa-building me-3"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <small class="text-muted d-block">Office Location</small>
+                      <span class="fw-semibold">Admin Building, Room 201</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center p-3 bg-white rounded">
+                    <i
+                      class="fas fa-laptop me-3"
+                      style="color: var(--primary-blue); font-size: 1.5rem"
+                    ></i>
+                    <div>
+                      <small class="text-muted d-block">Online Portal</small>
+                      <a href="/complaint/submit" class="fw-semibold"
+                        >Submit Complaint Form</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <div
+            class="p-5 rounded"
+            style="
+              background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            "
+          >
+            <h4 class="fw-bold mb-3">Need to Report an Incident?</h4>
+            <p class="text-muted mb-4">
+              Our committee is here to help. Submit your complaint
+              confidentially and we'll take immediate action.
+            </p>
+            <a
+              href="/complaint/submit"
+              class="btn btn-lg shadow"
+              style="
+                padding: 0.8rem 2rem;
+                border-radius: 10px;
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue) 0%,
+                  #1e4d7b 100%
+                );
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fas fa-file-alt me-2"></i>Submit Complaint to Committee
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

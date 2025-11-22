@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .rights-card {
+        border-left: 4px solid var(--primary-blue);
+        transition: all 0.3s ease;
+      }
+      .rights-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(42, 89, 155, 0.15) !important;
+      }
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+        padding: 4rem 0;
+        color: white;
+      }
+      .icon-box {
+        width: 70px;
+        height: 70px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .right-card {
+        border-top: 4px solid;
+        transition: all 0.3s ease;
+        border-radius: 15px;
+      }
+      .right-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+      }
+    </style>
+  </head>
+  <body class="student-page">
+    <%- include('../partials/navbar', { currentPage: 'rights' }) %>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mx-auto text-center">
+            <div class="mb-4">
+              <i class="fas fa-user-shield fa-4x" style="opacity: 0.9"></i>
+            </div>
+            <h1 class="display-4 fw-bold mb-3">Student Rights & Protection</h1>
+            <p class="lead mb-0">Know Your Rights, Exercise Your Freedom</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <!-- Know Your Rights Alert -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div
+            class="alert border-0 shadow-sm d-flex align-items-center"
+            style="
+              border-radius: 15px;
+              background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            "
+          >
+            <div class="icon-box me-4" style="background: white">
+              <i
+                class="fas fa-info-circle"
+                style="color: var(--primary-blue)"
+              ></i>
+            </div>
+            <div>
+              <h5
+                class="alert-heading fw-bold mb-2"
+                style="color: var(--primary-blue)"
+              >
+                Know Your Rights
+              </h5>
+              <p class="mb-0 text-dark">
+                Every student has the right to pursue education in a safe,
+                respectful, and ragging-free environment. These rights are
+                protected by law and institutional policies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your Fundamental Rights -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h3 class="fw-bold mb-4 text-center">
+            <i
+              class="fas fa-shield-alt me-2"
+              style="color: var(--primary-blue)"
+            ></i
+            >Your Fundamental Rights
+          </h3>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div
+                class="card right-card border-0 shadow-sm h-100"
+                style="border-top-color: var(--primary-blue) !important"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #e3f2fd 0%,
+                        #bbdefb 100%
+                      );
+                    "
+                  >
+                    <i
+                      class="fas fa-shield-alt"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                  </div>
+                  <h5 class="fw-bold mb-3" style="color: var(--primary-blue)">
+                    Right to Safety
+                  </h5>
+                  <p class="mb-0">
+                    You have the right to feel safe and secure on campus, in
+                    hostels, and during all college activities. No one can
+                    threaten, intimidate, or harm you in any way.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div
+                class="card right-card border-0 shadow-sm h-100"
+                style="border-top-color: #28a745 !important"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4edda 0%,
+                        #c3e6cb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-user-secret text-success"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-success">
+                    Right to Confidentiality
+                  </h5>
+                  <p class="mb-0">
+                    Your identity will be kept completely confidential when you
+                    report ragging. You can report anonymously without fear of
+                    retaliation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div
+                class="card right-card border-0 shadow-sm h-100"
+                style="border-top-color: #17a2b8 !important"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d1ecf1 0%,
+                        #bee5eb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-balance-scale text-info"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-info">
+                    Right to Fair Investigation
+                  </h5>
+                  <p class="mb-0">
+                    Every complaint will be investigated fairly and impartially.
+                    You have the right to present your case and be heard by the
+                    committee.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div
+                class="card right-card border-0 shadow-sm h-100"
+                style="border-top-color: #ffc107 !important"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #fff3cd 0%,
+                        #ffeaa7 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-hands-helping text-warning"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-warning">Right to Support</h5>
+                  <p class="mb-0">
+                    You have the right to counselling and psychological support.
+                    The institution will provide necessary assistance to
+                    overcome trauma.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div
+                class="card right-card border-0 shadow-sm h-100"
+                style="border-top-color: #dc3545 !important"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #f8d7da 0%,
+                        #f5c6cb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-ban text-danger"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-danger">Right to Say NO</h5>
+                  <p class="mb-0">
+                    You have every right to refuse any activity that makes you
+                    uncomfortable. You are NOT obliged to follow seniors'
+                    orders.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div
+                class="card right-card border-0 shadow-sm h-100"
+                style="border-top-color: #6c757d !important"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #e2e3e5 0%,
+                        #d6d8db 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-gavel text-dark"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Right to Legal Action</h5>
+                  <p class="mb-0">
+                    You have the right to pursue legal action against offenders.
+                    The institution will support you in taking the matter to
+                    authorities.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What You Should Do -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div
+            class="card border-0 shadow-lg"
+            style="border-radius: 20px; overflow: hidden"
+          >
+            <div
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue) 0%,
+                  #1e4d7b 100%
+                );
+                padding: 2rem;
+              "
+            >
+              <h3 class="text-white fw-bold mb-0">
+                <i class="fas fa-list-check me-2"></i>What You Should Do
+              </h3>
+            </div>
+            <div class="card-body p-4">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div
+                    class="card border-0 shadow-sm h-100"
+                    style="
+                      border-radius: 12px;
+                      background: linear-gradient(
+                        135deg,
+                        #d4edda 0%,
+                        #c3e6cb 100%
+                      );
+                    "
+                  >
+                    <div class="card-body p-4">
+                      <h5 class="fw-bold mb-3 text-success">
+                        <i class="fas fa-check-circle me-2"></i>If You Face
+                        Ragging
+                      </h5>
+                      <ol class="mb-0">
+                        <li class="mb-2">
+                          <strong>Stay Calm:</strong> Don't panic. Remember you
+                          are protected.
+                        </li>
+                        <li class="mb-2">
+                          <strong>Say NO Firmly:</strong> Refuse to participate
+                          and walk away if possible.
+                        </li>
+                        <li class="mb-2">
+                          <strong>Report Immediately:</strong> Use any reporting
+                          channel - online, phone, or in person.
+                        </li>
+                        <li class="mb-2">
+                          <strong>Preserve Evidence:</strong> Keep messages,
+                          photos, videos as evidence.
+                        </li>
+                        <li class="mb-2">
+                          <strong>Seek Support:</strong> Talk to parents,
+                          friends, or counsellors.
+                        </li>
+                        <li class="mb-0">
+                          <strong>Don't Retaliate:</strong> Let the authorities
+                          handle it.
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div
+                    class="card border-0 shadow-sm h-100"
+                    style="
+                      border-radius: 12px;
+                      background: linear-gradient(
+                        135deg,
+                        #d1ecf1 0%,
+                        #bee5eb 100%
+                      );
+                    "
+                  >
+                    <div class="card-body p-4">
+                      <h5 class="fw-bold mb-3 text-info">
+                        <i class="fas fa-eye me-2"></i>If You Witness Ragging
+                      </h5>
+                      <ol class="mb-0">
+                        <li class="mb-2">
+                          <strong>Don't Ignore:</strong> Silence makes you
+                          complicit.
+                        </li>
+                        <li class="mb-2">
+                          <strong>Report Immediately:</strong> You can report
+                          anonymously.
+                        </li>
+                        <li class="mb-2">
+                          <strong>Support the Victim:</strong> Offer help and
+                          encouragement.
+                        </li>
+                        <li class="mb-2">
+                          <strong>Don't Join In:</strong> Refuse to participate
+                          even as a spectator.
+                        </li>
+                        <li class="mb-0">
+                          <strong>Document if Safe:</strong> Record evidence if
+                          you can do so safely.
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Protection Measures -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h3
+            class="fw-bold mb-4 text-center"
+            style="color: var(--primary-blue)"
+          >
+            <i class="fas fa-shield-virus me-2"></i>Protection Measures
+          </h3>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div
+                class="card border-0 shadow-sm text-center h-100"
+                style="border-radius: 15px"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mx-auto mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #e3f2fd 0%,
+                        #bbdefb 100%
+                      );
+                    "
+                  >
+                    <i
+                      class="fas fa-video"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                  </div>
+                  <h5 class="fw-bold mb-2">24/7 CCTV Surveillance</h5>
+                  <p class="text-muted mb-0">
+                    Key areas monitored round the clock for your safety
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card border-0 shadow-sm text-center h-100"
+                style="border-radius: 15px"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mx-auto mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4edda 0%,
+                        #c3e6cb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-users text-success"></i>
+                  </div>
+                  <h5 class="fw-bold mb-2">Anti-Ragging Squad</h5>
+                  <p class="text-muted mb-0">
+                    Regular patrols and surprise checks across campus
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card border-0 shadow-sm text-center h-100"
+                style="border-radius: 15px"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="icon-box mx-auto mb-3"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #f8d7da 0%,
+                        #f5c6cb 100%
+                      );
+                    "
+                  >
+                    <i class="fas fa-phone-volume text-danger"></i>
+                  </div>
+                  <h5 class="fw-bold mb-2">Emergency Helpline</h5>
+                  <p class="text-muted mb-0">
+                    Immediate assistance available 24/7
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reporting Channels -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <h3
+            class="fw-bold mb-4 text-center"
+            style="color: var(--primary-blue)"
+          >
+            <i class="fas fa-bullhorn me-2"></i>Reporting Channels
+          </h3>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div
+                class="card border-0 shadow-sm h-100"
+                style="
+                  border-radius: 15px;
+                  border-left: 4px solid var(--primary-blue);
+                "
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #e3f2fd 0%,
+                          #bbdefb 100%
+                        );
+                        width: 50px;
+                        height: 50px;
+                        font-size: 1.5rem;
+                      "
+                    >
+                      <i
+                        class="fas fa-laptop"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                    </div>
+                    <h5 class="fw-bold mb-0">Online Portal</h5>
+                  </div>
+                  <p class="mb-3">
+                    Submit complaint through our secure online portal
+                  </p>
+                  <a
+                    href="/complaint/submit"
+                    class="btn shadow"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary-blue) 0%,
+                        #1e4d7b 100%
+                      );
+                      border: none;
+                      color: white;
+                      border-radius: 10px;
+                    "
+                  >
+                    Submit Now
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div
+                class="card border-0 shadow-sm h-100"
+                style="border-radius: 15px; border-left: 4px solid #28a745"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #d4edda 0%,
+                          #c3e6cb 100%
+                        );
+                        width: 50px;
+                        height: 50px;
+                        font-size: 1.5rem;
+                      "
+                    >
+                      <i class="fas fa-phone text-success"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0">Helpline</h5>
+                  </div>
+                  <p class="mb-3">
+                    24/7 toll-free helpline: <strong>1800-180-5522</strong>
+                  </p>
+                  <a
+                    href="tel:18001805522"
+                    class="btn btn-success shadow"
+                    style="border-radius: 10px"
+                  >
+                    Call Now
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div
+                class="card border-0 shadow-sm h-100"
+                style="border-radius: 15px; border-left: 4px solid #17a2b8"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #d1ecf1 0%,
+                          #bee5eb 100%
+                        );
+                        width: 50px;
+                        height: 50px;
+                        font-size: 1.5rem;
+                      "
+                    >
+                      <i class="fas fa-envelope text-info"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0">Email</h5>
+                  </div>
+                  <p class="mb-3">Send detailed complaint via email</p>
+                  <a
+                    href="mailto:antiragging@college.edu"
+                    class="btn btn-info shadow"
+                    style="border-radius: 10px"
+                  >
+                    Email Now
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div
+                class="card border-0 shadow-sm h-100"
+                style="border-radius: 15px; border-left: 4px solid #ffc107"
+              >
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div
+                      class="icon-box me-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          #fff3cd 0%,
+                          #ffeaa7 100%
+                        );
+                        width: 50px;
+                        height: 50px;
+                        font-size: 1.5rem;
+                      "
+                    >
+                      <i class="fas fa-building text-warning"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0">In Person</h5>
+                  </div>
+                  <p class="mb-3">
+                    Visit Student Welfare Office during office hours
+                  </p>
+                  <a
+                    href="/contact"
+                    class="btn btn-warning shadow"
+                    style="border-radius: 10px"
+                  >
+                    Get Directions
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Important Reminders -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div
+            class="card border-0 shadow-sm"
+            style="
+              border-radius: 15px;
+              background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            "
+          >
+            <div class="card-body p-4">
+              <h5 class="fw-bold mb-3">
+                <i class="fas fa-lightbulb text-warning me-2"></i>Important
+                Reminders
+              </h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-shield-alt text-warning me-3 mt-1"
+                      style="font-size: 1.5rem"
+                    ></i>
+                    <p class="mb-0">
+                      <strong>Ragging is NOT a tradition</strong> - It's a
+                      punishable offense
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-user-friends text-warning me-3 mt-1"
+                      style="font-size: 1.5rem"
+                    ></i>
+                    <p class="mb-0">
+                      <strong>You are NOT alone</strong> - Help and support are
+                      available
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-heart text-warning me-3 mt-1"
+                      style="font-size: 1.5rem"
+                    ></i>
+                    <p class="mb-0">
+                      <strong>Speaking up is NOT weakness</strong> - It's
+                      courage
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-graduation-cap text-warning me-3 mt-1"
+                      style="font-size: 1.5rem"
+                    ></i>
+                    <p class="mb-0">
+                      <strong>Your future matters</strong> - Don't let fear stop
+                      you
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-bolt text-warning me-3 mt-1"
+                      style="font-size: 1.5rem"
+                    ></i>
+                    <p class="mb-0">
+                      <strong>Zero tolerance means action will be taken</strong>
+                      - Report with confidence
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-start">
+                    <i
+                      class="fas fa-lock text-warning me-3 mt-1"
+                      style="font-size: 1.5rem"
+                    ></i>
+                    <p class="mb-0">
+                      <strong>Your identity is protected</strong> -
+                      Confidentiality guaranteed
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <div
+            class="p-5 rounded"
+            style="
+              background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            "
+          >
+            <h4 class="fw-bold mb-3">
+              Remember: You Have the Right to Education Without Fear!
+            </h4>
+            <p class="text-muted mb-4">
+              Don't suffer in silence. Report ragging and help create a safe
+              campus for everyone.
+            </p>
+            <a
+              href="/complaint/submit"
+              class="btn btn-lg shadow me-2 mb-2"
+              style="
+                padding: 0.8rem 2rem;
+                border-radius: 10px;
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue) 0%,
+                  #1e4d7b 100%
+                );
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fas fa-file-alt me-2"></i>Report Incident
+            </a>
+            <a
+              href="/contact"
+              class="btn btn-outline-secondary btn-lg shadow mb-2"
+              style="padding: 0.8rem 2rem; border-radius: 10px"
+            >
+              <i class="fas fa-phone me-2"></i>Get Help
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

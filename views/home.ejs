@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANITS | Anti-Ragging Portal</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+      /* Hero Section Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 50px 50px;
+        animation: float 20s infinite linear;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .logo-container {
+        animation: pulse 3s ease-in-out infinite;
+      }
+
+      .portal-card {
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .portal-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .portal-card:hover::before {
+        left: 100%;
+      }
+
+      .portal-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(42, 89, 155, 0.3);
+      }
+
+      .icon-box {
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        margin: 0 auto 1.5rem;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      }
+
+      .portal-card:hover .icon-box {
+        transform: rotateY(360deg);
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+      }
+
+      .portal-card:hover .icon-box i {
+        color: white !important;
+      }
+
+      .feature-card {
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        height: 100%;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 2.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .stat-card {
+        padding: 2rem;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stat-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          transparent,
+          rgba(255, 255, 255, 0.2)
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .stat-card:hover::after {
+        opacity: 1;
+      }
+
+      .stat-card:hover {
+        transform: scale(1.05);
+      }
+
+      .btn-gradient {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+        border: none;
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(42, 89, 155, 0.3);
+      }
+
+      .btn-gradient:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(42, 89, 155, 0.4);
+        color: white;
+      }
+
+      .section-title {
+        position: relative;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+        border-radius: 2px;
+      }
+
+      .quick-links {
+        border-radius: 20px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 3rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .quick-link-btn {
+        border-radius: 15px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        background: white;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .quick-link-btn:hover {
+        transform: translateX(10px);
+        border-color: var(--primary-blue);
+        box-shadow: 0 5px 20px rgba(42, 89, 155, 0.2);
+      }
+
+      .emergency-card {
+        background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      /* Testimonial Carousel Styles */
+      .testimonial-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .testimonial-slide {
+        display: none;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .testimonial-slide.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .carousel-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        color: var(--primary-blue);
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+
+      .carousel-nav-btn:hover {
+        background: var(--primary-blue);
+        color: white;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .carousel-prev {
+        left: -25px;
+      }
+
+      .carousel-next {
+        right: -25px;
+      }
+
+      .indicator-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid var(--primary-blue);
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+      }
+
+      .indicator-dot.active {
+        background: var(--primary-blue);
+        width: 30px;
+        border-radius: 6px;
+      }
+
+      .indicator-dot:hover {
+        transform: scale(1.2);
+      }
+
+      .testimonial-image-wrapper {
+        transition: transform 0.3s ease;
+      }
+
+      .testimonial-image-wrapper:hover {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          min-height: auto;
+          padding: 3rem 0 2rem;
+        }
+
+        .hero-section h1 {
+          font-size: 1.5rem !important;
+        }
+
+        .hero-section h2 {
+          font-size: 1rem !important;
+        }
+
+        .hero-section .lead {
+          font-size: 1.1rem !important;
+        }
+
+        .hero-section p {
+          font-size: 0.95rem !important;
+        }
+
+        .logo-container img {
+          max-width: 120px !important;
+        }
+
+        .btn-lg {
+          padding: 0.75rem 1.5rem !important;
+          font-size: 0.95rem !important;
+        }
+
+        .portal-card {
+          margin-bottom: 2rem;
+        }
+
+        .portal-card h3 {
+          font-size: 1.5rem;
+        }
+
+        .portal-card p {
+          font-size: 0.95rem !important;
+        }
+
+        .icon-box {
+          width: 80px;
+          height: 80px;
+          font-size: 2.5rem;
+        }
+
+        .feature-card h5 {
+          font-size: 1.1rem;
+        }
+
+        .feature-card p {
+          font-size: 0.9rem;
+        }
+
+        .feature-icon {
+          width: 60px;
+          height: 60px;
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .quick-links {
+          padding: 2rem 1.5rem;
+        }
+
+        .quick-link-btn {
+          padding: 1rem;
+        }
+
+        .quick-link-btn h5 {
+          font-size: 1rem;
+        }
+
+        .quick-link-btn p {
+          font-size: 0.85rem;
+        }
+
+        .quick-link-btn .fa-3x {
+          font-size: 2rem !important;
+        }
+
+        .quick-link-btn .fa-2x {
+          font-size: 1.5rem !important;
+        }
+
+        .stat-card {
+          padding: 1.5rem 1rem;
+        }
+
+        .stat-card i {
+          font-size: 2rem !important;
+        }
+
+        .stat-card h2 {
+          font-size: 1.5rem;
+        }
+
+        .stat-card p {
+          font-size: 0.85rem;
+        }
+
+        .carousel-prev {
+          left: 5px;
+          width: 35px;
+          height: 35px;
+          font-size: 0.9rem;
+        }
+
+        .carousel-next {
+          right: 5px;
+          width: 35px;
+          height: 35px;
+          font-size: 0.9rem;
+        }
+
+        .testimonial-content p.lead {
+          font-size: 0.95rem !important;
+        }
+
+        .testimonial-content h5 {
+          font-size: 1rem;
+        }
+
+        .testimonial-content p {
+          font-size: 0.85rem;
+        }
+
+        .testimonial-image-wrapper {
+          max-width: 180px !important;
+        }
+
+        .testimonial-image-wrapper img {
+          height: 180px !important;
+        }
+
+        .fa-quote-left {
+          font-size: 2rem !important;
+        }
+
+        .p-5 {
+          padding: 2rem !important;
+        }
+
+        .py-5 {
+          padding-top: 2.5rem !important;
+          padding-bottom: 2.5rem !important;
+        }
+
+        .my-5 {
+          margin-top: 2rem !important;
+          margin-bottom: 2rem !important;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-section {
+          padding: 2rem 0 1.5rem;
+        }
+
+        .hero-section h1 {
+          font-size: 1.25rem !important;
+        }
+
+        .hero-section h2 {
+          font-size: 0.9rem !important;
+        }
+
+        .hero-section .lead {
+          font-size: 1rem !important;
+        }
+
+        .hero-section p {
+          font-size: 0.9rem !important;
+        }
+
+        .logo-container img {
+          max-width: 100px !important;
+        }
+
+        .btn-lg {
+          padding: 0.6rem 1.25rem !important;
+          font-size: 0.9rem !important;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+        }
+
+        .portal-card h3 {
+          font-size: 1.25rem;
+        }
+
+        .icon-box {
+          width: 70px;
+          height: 70px;
+          font-size: 2rem;
+        }
+
+        .quick-links {
+          padding: 1.5rem 1rem;
+        }
+
+        .quick-link-btn {
+          padding: 0.75rem;
+        }
+
+        .stat-card {
+          padding: 1rem 0.75rem;
+        }
+
+        .stat-card i {
+          font-size: 1.75rem !important;
+        }
+
+        .stat-card h2 {
+          font-size: 1.25rem;
+        }
+
+        .testimonial-image-wrapper {
+          max-width: 150px !important;
+        }
+
+        .testimonial-image-wrapper img {
+          height: 150px !important;
+        }
+
+        .testimonial-content .lead {
+          line-height: 1.6 !important;
+        }
+
+        .p-5 {
+          padding: 1.5rem !important;
+        }
+
+        .carousel-prev,
+        .carousel-next {
+          width: 30px;
+          height: 30px;
+          font-size: 0.8rem;
+        }
+
+        .indicator-dot {
+          width: 8px;
+          height: 8px;
+        }
+
+        .indicator-dot.active {
+          width: 20px;
+        }
+      }
+
+      @media (min-width: 992px) and (max-width: 1199px) {
+        .hero-section h1 {
+          font-size: 2rem !important;
+        }
+
+        .portal-card p {
+          font-size: 1rem !important;
+        }
+
+        .quick-link-btn h5 {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navbar', { currentPage: 'home' }) %>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-10 text-center hero-content">
+            <div class="logo-container mb-4">
+              <img
+                src="/images/anits.jpeg"
+                alt="ANITS Logo"
+                class="img-fluid rounded-circle shadow-lg"
+                style="max-width: 180px; border: 5px solid white"
+              />
+            </div>
+            <h1 class="fw-bold mb-3 text-white fs-1 fs-md-2 fs-sm-4">
+              <i class="fas fa-university me-2 me-md-3"></i
+              ><span class="d-inline d-md-inline"
+                >ANIL NEERUKONDA INSTITUTE OF TECHNOLOGY & SCIENCES</span
+              >
+            </h1>
+            <h2 class="fs-5 fs-md-4" style="color: grey">(AUTONOMOUS)</h2>
+            <p
+              class="lead mb-3 text-white fs-4 fs-md-3"
+              style="font-weight: 300"
+            >
+              Anti-Ragging Cell - Building a Safe and Respectful Campus
+            </p>
+            <p class="text-white mb-4 fs-5 fs-md-4" style="opacity: 0.95">
+              <i class="fas fa-shield-alt me-2"></i>Your Safety is Our Priority
+            </p>
+            <div class="d-flex gap-2 gap-md-3 justify-content-center flex-wrap">
+              <a
+                href="/complaint/submit"
+                class="btn btn-light btn-lg"
+                style="
+                  border-radius: 50px;
+                  padding: 0.75rem 2rem;
+                  font-weight: 600;
+                "
+              >
+                <i class="fas fa-file-alt me-2"></i
+                ><span class="d-none d-sm-inline">Report Incident</span
+                ><span class="d-inline d-sm-none">Report</span>
+              </a>
+              <a
+                href="#portals"
+                class="btn btn-outline-light btn-lg"
+                style="
+                  border-radius: 50px;
+                  padding: 0.75rem 2rem;
+                  font-weight: 600;
+                "
+              >
+                <i class="fas fa-arrow-down me-2"></i>Explore
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+      <!-- Portal Cards Section -->
+      <section id="portals" class="my-5 py-5">
+        <div class="text-center mb-4 mb-md-5">
+          <h2 class="fw-bold section-title d-inline-block fs-2 fs-md-1">
+            Access Portals
+          </h2>
+          <p class="text-muted mt-2 mt-md-3 fs-6 fs-md-5">
+            Choose your portal to get started
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card portal-card h-100">
+              <div class="card-body text-center p-5">
+                <div class="icon-box">
+                  <i
+                    class="fas fa-user-shield"
+                    style="color: var(--primary-blue)"
+                  ></i>
+                </div>
+                <h3 class="fw-bold mb-3 fs-3 fs-md-2">Admin Portal</h3>
+                <p class="text-muted mb-4 fs-6 fs-md-5">
+                  Secure access for administrators to manage complaints, view
+                  analytics, and take necessary actions to ensure campus safety.
+                </p>
+                <a href="/admin/login" class="btn btn-gradient btn-lg">
+                  <i class="fas fa-sign-in-alt me-2"></i>Enter Admin Portal
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card portal-card h-100">
+              <div class="card-body text-center p-5">
+                <div class="icon-box">
+                  <i
+                    class="fas fa-user-graduate"
+                    style="color: var(--primary-blue)"
+                  ></i>
+                </div>
+                <h3 class="fw-bold mb-3 fs-3 fs-md-2">Student Portal</h3>
+                <p class="text-muted mb-4 fs-6 fs-md-5">
+                  Report ragging incidents safely and confidentially. Your
+                  identity will be protected and action will be taken promptly.
+                </p>
+                <a href="/complaint/submit" class="btn btn-gradient btn-lg">
+                  <i class="fas fa-file-alt me-2"></i>Submit Complaint
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="my-5 py-5">
+        <div class="text-center mb-4 mb-md-5">
+          <h2 class="fw-bold section-title d-inline-block fs-2 fs-md-1">
+            Why Choose Us
+          </h2>
+          <p class="text-muted mt-2 mt-md-3 fs-6 fs-md-5">
+            Our commitment to your safety and well-being
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card feature-card text-center p-4">
+              <div
+                class="feature-icon mx-auto"
+                style="
+                  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+                "
+              >
+                <i
+                  class="fas fa-user-secret"
+                  style="color: var(--primary-blue)"
+                ></i>
+              </div>
+              <h5 class="fw-bold mb-2 mb-md-3 fs-5 fs-md-4">
+                Complete Anonymity
+              </h5>
+              <p class="text-muted mb-0 fs-6">
+                Your identity will be protected throughout the process. Submit
+                complaints without fear of exposure or retaliation.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card feature-card text-center p-4">
+              <div
+                class="feature-icon mx-auto"
+                style="
+                  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+                "
+              >
+                <i class="fas fa-bolt text-success"></i>
+              </div>
+              <h5 class="fw-bold mb-3">Quick Response</h5>
+              <p class="text-muted mb-0">
+                All complaints are reviewed within 24 hours and immediate action
+                is taken. We prioritize your safety above all.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card feature-card text-center p-4">
+              <div
+                class="feature-icon mx-auto"
+                style="
+                  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+                "
+              >
+                <i class="fas fa-gavel text-danger"></i>
+              </div>
+              <h5 class="fw-bold mb-3">Strict Action</h5>
+              <p class="text-muted mb-0">
+                Zero tolerance policy enforced. Strict disciplinary action
+                against offenders as per UGC guidelines and law.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Links Section -->
+      <section class="my-5 py-5">
+        <div class="quick-links">
+          <div class="text-center mb-4 mb-md-5">
+            <h2 class="fw-bold section-title d-inline-block fs-2 fs-md-1">
+              Quick Access
+            </h2>
+            <p class="text-muted mt-2 mt-md-3 fs-6 fs-md-5">
+              Navigate to important pages
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <a href="/complaint/track" class="text-decoration-none">
+                <div class="quick-link-btn">
+                  <div class="d-flex align-items-center">
+                    <div class="me-4">
+                      <i
+                        class="fas fa-search fa-3x"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h5 class="fw-bold mb-2">Track Your Complaint</h5>
+                      <p class="text-muted mb-0">
+                        Check status and progress of your complaint
+                      </p>
+                    </div>
+                    <i
+                      class="fas fa-arrow-right fa-2x"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="/rules" class="text-decoration-none">
+                <div class="quick-link-btn">
+                  <div class="d-flex align-items-center">
+                    <div class="me-4">
+                      <i
+                        class="fas fa-balance-scale fa-3x"
+                        style="color: var(--primary-blue)"
+                      ></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h5 class="fw-bold mb-2">Rules & Regulations</h5>
+                      <p class="text-muted mb-0">
+                        Learn about anti-ragging rules and policies
+                      </p>
+                    </div>
+                    <i
+                      class="fas fa-arrow-right fa-2x"
+                      style="color: var(--primary-blue)"
+                    ></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="/penalties" class="text-decoration-none">
+                <div class="quick-link-btn">
+                  <div class="d-flex align-items-center">
+                    <div class="me-4">
+                      <i class="fas fa-gavel fa-3x text-danger"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h5 class="fw-bold mb-2">Penalties & Punishments</h5>
+                      <p class="text-muted mb-0">
+                        Understand consequences of ragging
+                      </p>
+                    </div>
+                    <i class="fas fa-arrow-right fa-2x text-danger"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="/rights" class="text-decoration-none">
+                <div class="quick-link-btn">
+                  <div class="d-flex align-items-center">
+                    <div class="me-4">
+                      <i class="fas fa-user-shield fa-3x text-success"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h5 class="fw-bold mb-2">Student Rights</h5>
+                      <p class="text-muted mb-0">
+                        Know your rights and protections
+                      </p>
+                    </div>
+                    <i class="fas fa-arrow-right fa-2x text-success"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="/committee" class="text-decoration-none">
+                <div class="quick-link-btn">
+                  <div class="d-flex align-items-center">
+                    <div class="me-4">
+                      <i class="fas fa-users fa-3x text-info"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h5 class="fw-bold mb-2">Committee Members</h5>
+                      <p class="text-muted mb-0">
+                        Meet our anti-ragging committee
+                      </p>
+                    </div>
+                    <i class="fas fa-arrow-right fa-2x text-info"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="/contact" class="text-decoration-none">
+                <div class="quick-link-btn">
+                  <div class="d-flex align-items-center">
+                    <div class="me-4">
+                      <i class="fas fa-phone-alt fa-3x text-warning"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h5 class="fw-bold mb-2">Emergency Contacts</h5>
+                      <p class="text-muted mb-0">
+                        Get immediate help and support
+                      </p>
+                    </div>
+                    <i class="fas fa-arrow-right fa-2x text-warning"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="my-5 py-5">
+        <div class="text-center mb-4 mb-md-5">
+          <h2 class="fw-bold section-title d-inline-block fs-2 fs-md-1">
+            Our Commitment
+          </h2>
+          <p class="text-muted mt-2 mt-md-3 fs-6 fs-md-5">
+            Numbers that speak for themselves
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-3 col-6">
+            <div
+              class="stat-card text-center"
+              style="
+                background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+              "
+            >
+              <i
+                class="fas fa-clock mb-3"
+                style="font-size: 3rem; color: var(--primary-blue)"
+              ></i>
+              <h2 class="fw-bold mb-2" style="color: var(--primary-blue)">
+                24/7
+              </h2>
+              <p class="text-muted mb-0 fw-semibold">Always Available</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <div
+              class="stat-card text-center"
+              style="
+                background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+              "
+            >
+              <i
+                class="fas fa-shield-alt mb-3"
+                style="font-size: 3rem; color: var(--success)"
+              ></i>
+              <h2 class="fw-bold mb-2 text-success">100%</h2>
+              <p class="text-muted mb-0 fw-semibold">Confidential</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <div
+              class="stat-card text-center"
+              style="
+                background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+              "
+            >
+              <i
+                class="fas fa-bolt mb-3"
+                style="font-size: 3rem; color: var(--warning)"
+              ></i>
+              <h2 class="fw-bold mb-2 text-warning">&lt;24hrs</h2>
+              <p class="text-muted mb-0 fw-semibold">Response Time</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <div
+              class="stat-card text-center"
+              style="
+                background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+              "
+            >
+              <i
+                class="fas fa-users mb-3"
+                style="font-size: 3rem; color: var(--info)"
+              ></i>
+              <h2 class="fw-bold mb-2 text-info">Active</h2>
+              <p class="text-muted mb-0 fw-semibold">Committee</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Administrator's Insight Section -->
+      <section class="my-5 py-5">
+        <div class="text-center mb-4 mb-md-5">
+          <h2 class="fw-bold section-title d-inline-block fs-2 fs-md-1">
+            Administrator's Insight
+          </h2>
+          <p class="text-muted mt-2 mt-md-3 fs-6 fs-md-5">
+            Words from our leadership on creating a ragging-free campus
+          </p>
+        </div>
+
+        <div
+          class="testimonial-container position-relative"
+          style="max-width: 100%; width: 100%"
+        >
+          <div
+            style="
+              border-radius: 20px;
+              overflow: visible;
+              background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            "
+          >
+            <div class="p-5">
+              <!-- Carousel -->
+              <div id="adminCarousel" class="position-relative">
+                <!-- Slide 1: Principal -->
+                <div class="testimonial-slide active" data-slide="0">
+                  <div class="row align-items-center g-4">
+                    <div class="col-md-4 text-center">
+                      <div
+                        class="testimonial-image-wrapper mx-auto"
+                        style="max-width: 250px"
+                      >
+                        <img
+                          src="/images/principal.png"
+                          alt="Principal"
+                          class="img-fluid rounded-circle shadow-lg"
+                          style="
+                            width: 100%;
+                            height: 250px;
+                            object-fit: cover;
+                            border: 5px solid var(--primary-blue);
+                          "
+                          onerror="this.src='https://via.placeholder.com/250?text=Principal'"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="testimonial-content">
+                        <i
+                          class="fas fa-quote-left fa-3x mb-3"
+                          style="color: var(--primary-blue); opacity: 0.3"
+                        ></i>
+                        <p
+                          class="lead mb-4"
+                          style="
+                            font-size: 1.1rem;
+                            line-height: 1.8;
+                            color: #2c3e50;
+                          "
+                        >
+                          "At ANITS, we are committed to creating an environment
+                          where every student feels safe, respected, and valued.
+                          Ragging is not just prohibited—it's against everything
+                          we stand for as an institution. We have zero tolerance
+                          for such behavior and will take swift action against
+                          any violators."
+                        </p>
+                        <div class="d-flex align-items-center">
+                          <div
+                            class="me-3"
+                            style="
+                              width: 4px;
+                              height: 60px;
+                              background: var(--primary-blue);
+                              border-radius: 2px;
+                            "
+                          ></div>
+                          <div>
+                            <h5
+                              class="fw-bold mb-1"
+                              style="color: var(--primary-blue)"
+                            >
+                              Prof. V. Rajya Lakshmi
+                            </h5>
+                            <p class="text-muted mb-0">
+                              M.E, Ph.D, MIEEE, MIETE, MIE
+                            </p>
+                            <p class="text-muted mb-0">Principal, ANITS</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Anti-Ragging Committee Leader -->
+                <div class="testimonial-slide" data-slide="2">
+                  <div class="row align-items-center g-4">
+                    <div class="col-md-4 text-center">
+                      <div
+                        class="testimonial-image-wrapper mx-auto"
+                        style="max-width: 250px"
+                      >
+                        <img
+                          src="/images/director.png"
+                          alt="Committee Leader"
+                          class="img-fluid rounded-circle shadow-lg"
+                          style="
+                            width: 100%;
+                            height: 250px;
+                            object-fit: cover;
+                            border: 5px solid #28a745;
+                          "
+                          onerror="this.src='https://via.placeholder.com/250?text=Committee+Leader'"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="testimonial-content">
+                        <i
+                          class="fas fa-quote-left fa-3x mb-3"
+                          style="color: #28a745; opacity: 0.3"
+                        ></i>
+                        <p
+                          class="lead mb-4"
+                          style="
+                            font-size: 1.1rem;
+                            line-height: 1.8;
+                            color: #2c3e50;
+                          "
+                        >
+                          "As the Anti-Ragging Committee, we work tirelessly to
+                          maintain a safe campus environment. Every complaint is
+                          investigated thoroughly and confidentially. We believe
+                          in creating awareness and taking preventive measures
+                          alongside strict enforcement of anti-ragging
+                          policies."
+                        </p>
+                        <div class="d-flex align-items-center">
+                          <div
+                            class="me-3"
+                            style="
+                              width: 4px;
+                              height: 60px;
+                              background: #28a745;
+                              border-radius: 2px;
+                            "
+                          ></div>
+                          <div>
+                            <h5 class="fw-bold mb-1" style="color: #28a745">
+                              Prof. T.V. Hanumantha Rao
+                            </h5>
+                            <p class="text-muted mb-0">M.Tech., Ph.D, F.I.E</p>
+                            <p class="text-muted mb-0">Director - IQAC</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 2: Dean -->
+                <div class="testimonial-slide" data-slide="1">
+                  <div class="row align-items-center g-4">
+                    <div class="col-md-4 text-center">
+                      <div
+                        class="testimonial-image-wrapper mx-auto"
+                        style="max-width: 250px"
+                      >
+                        <img
+                          src="/images/dean.png"
+                          alt="Dean"
+                          class="img-fluid rounded-circle shadow-lg"
+                          style="
+                            width: 100%;
+                            height: 250px;
+                            object-fit: cover;
+                            border: 5px solid #17a2b8;
+                          "
+                          onerror="this.src='https://via.placeholder.com/250?text=Dean'"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="testimonial-content">
+                        <i
+                          class="fas fa-quote-left fa-3x mb-3"
+                          style="color: #17a2b8; opacity: 0.3"
+                        ></i>
+                        <p
+                          class="lead mb-4"
+                          style="
+                            font-size: 1.1rem;
+                            line-height: 1.8;
+                            color: #2c3e50;
+                          "
+                        >
+                          "Student welfare is our top priority. Our anti-ragging
+                          measures are designed to ensure that every student can
+                          pursue their education without fear. We encourage
+                          students to report any incident immediately. Your
+                          voice matters, and we are here to protect you."
+                        </p>
+                        <div class="d-flex align-items-center">
+                          <div
+                            class="me-3"
+                            style="
+                              width: 4px;
+                              height: 60px;
+                              background: #17a2b8;
+                              border-radius: 2px;
+                            "
+                          ></div>
+                          <div>
+                            <h5 class="fw-bold mb-1" style="color: #17a2b8">
+                              Prof. B.N.D. Narasinga Rao
+                            </h5>
+                            <p class="text-muted mb-0">M.E, PhD, FIE, FIGS</p>
+                            <p class="text-muted mb-0">
+                              Dean of Student Affairs, ANITS
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Buttons -->
+              <button
+                class="carousel-nav-btn carousel-prev"
+                onclick="changeSlide(-1)"
+                aria-label="Previous slide"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button
+                class="carousel-nav-btn carousel-next"
+                onclick="changeSlide(1)"
+                aria-label="Next slide"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+
+              <!-- Indicators -->
+              <div
+                class="carousel-indicators-custom mt-4 d-flex justify-content-center gap-2"
+              >
+                <button
+                  class="indicator-dot active"
+                  onclick="goToSlide(0)"
+                  aria-label="Go to slide 1"
+                ></button>
+                <button
+                  class="indicator-dot"
+                  onclick="goToSlide(1)"
+                  aria-label="Go to slide 2"
+                ></button>
+                <button
+                  class="indicator-dot"
+                  onclick="goToSlide(2)"
+                  aria-label="Go to slide 3"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <!-- SOS Button (Floating) -->
+    <button id="sosButton" class="sos-button" title="Emergency SOS Alert">
+      <i class="fas fa-exclamation-triangle"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/sos.js"></script>
+
+    <!-- Carousel JavaScript -->
+    <script>
+      let currentSlide = 0;
+      let autoSlideInterval;
+      const slides = document.querySelectorAll(".testimonial-slide");
+      const indicators = document.querySelectorAll(".indicator-dot");
+      const totalSlides = slides.length;
+
+      function showSlide(index) {
+        // Wrap around if index is out of bounds
+        if (index >= totalSlides) {
+          currentSlide = 0;
+        } else if (index < 0) {
+          currentSlide = totalSlides - 1;
+        } else {
+          currentSlide = index;
+        }
+
+        // Hide all slides
+        slides.forEach((slide) => {
+          slide.classList.remove("active");
+        });
+
+        // Remove active class from all indicators
+        indicators.forEach((indicator) => {
+          indicator.classList.remove("active");
+        });
+
+        // Show current slide
+        slides[currentSlide].classList.add("active");
+        indicators[currentSlide].classList.add("active");
+      }
+
+      function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+        resetAutoSlide();
+      }
+
+      function goToSlide(index) {
+        showSlide(index);
+        resetAutoSlide();
+      }
+
+      function autoSlide() {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(autoSlide, 3000);
+      }
+
+      // Start auto-sliding when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        showSlide(0);
+        autoSlideInterval = setInterval(autoSlide, 3000);
+      });
+
+      // Pause auto-slide on hover
+      const carouselElement = document.getElementById("adminCarousel");
+      if (carouselElement) {
+        carouselElement.addEventListener("mouseenter", function () {
+          clearInterval(autoSlideInterval);
+        });
+
+        carouselElement.addEventListener("mouseleave", function () {
+          autoSlideInterval = setInterval(autoSlide, 3000);
+        });
+      }
+    </script>
+  </body>
+</html>

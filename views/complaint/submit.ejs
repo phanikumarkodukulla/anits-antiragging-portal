@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANITS | Submit Complaint</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+        padding: 4rem 0 3rem;
+        color: white;
+      }
+
+      .section-header {
+        border-left: 4px solid var(--primary-blue);
+        padding-left: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-control,
+      .form-select {
+        border-radius: 10px;
+        border: 2px solid #e0e0e0;
+        padding: 0.75rem 1rem;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 0.2rem rgba(42, 89, 155, 0.15);
+      }
+
+      .upload-area {
+        border: 2px dashed #d0d0d0;
+        border-radius: 15px;
+        padding: 3rem 2rem;
+        text-align: center;
+        background: #f8f9fa;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .upload-area:hover {
+        border-color: var(--primary-blue);
+        background: #e3f2fd;
+      }
+
+      .upload-area input[type="file"] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .info-card {
+        border-radius: 15px;
+        border: none;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .btn-submit {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          #1e4d7b 100%
+        );
+        border: none;
+        padding: 1rem 3rem;
+        border-radius: 10px;
+        font-weight: 600;
+        color: white;
+      }
+
+      .btn-submit:hover {
+        opacity: 0.9;
+        color: white;
+      }
+
+      .required-mark {
+        color: #dc3545;
+        font-weight: bold;
+      }
+
+      .form-section-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      }
+    </style>
+  </head>
+  <body class="student-page">
+    <%- include('../partials/navbar', { currentPage: 'submit' }) %>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-8 text-center">
+            <div class="mb-3">
+              <i class="fas fa-file-alt fa-3x" style="opacity: 0.9"></i>
+            </div>
+            <h1 class="fw-bold mb-3">Submit Ragging Complaint</h1>
+            <p class="lead mb-0" style="opacity: 0.95">
+              Your complaint will be handled with complete confidentiality
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <% if (error) { %>
+          <div
+            class="alert alert-danger alert-dismissible fade show mb-4"
+            role="alert"
+            style="border-radius: 10px"
+          >
+            <i class="fas fa-exclamation-circle me-2"></i
+            ><strong>Error:</strong> <%= error %>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+            ></button>
+          </div>
+          <% } %>
+
+          <!-- Confidentiality Notice -->
+          <div
+            class="info-card mb-4"
+            style="
+              background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+              border-left: 5px solid var(--primary-blue);
+            "
+          >
+            <div class="card-body p-4">
+              <h5 class="fw-bold mb-2" style="color: var(--primary-blue)">
+                <i class="fas fa-shield-alt me-2"></i>100% Confidentiality
+                Guaranteed
+              </h5>
+              <p class="mb-0">
+                Your complaint will be kept strictly confidential. You can
+                choose to remain anonymous, and your identity will be protected
+                throughout the investigation process. All information is
+                encrypted and accessible only to authorized committee members.
+              </p>
+            </div>
+          </div>
+
+          <!-- Main Form -->
+          <form
+            action="/complaint/submit"
+            method="POST"
+            enctype="multipart/form-data"
+            id="complaintForm"
+          >
+            <!-- Section 1: Personal Information -->
+            <div class="form-section-card">
+              <div class="section-header">
+                <h4 class="fw-bold mb-1">
+                  <i
+                    class="fas fa-user me-2"
+                    style="color: var(--primary-blue)"
+                  ></i
+                  >Your Information
+                </h4>
+                <p class="text-muted small mb-0">
+                  Your contact details (required for case updates)
+                </p>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-12">
+                  <label class="form-label">
+                    Full Name
+                    <span class="text-muted small"
+                      >(Optional - for anonymous complaints)</span
+                    >
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="studentName"
+                    placeholder="Enter your name or leave blank for anonymous"
+                  />
+                  <div class="form-text">
+                    <i class="fas fa-info-circle me-1"></i>Leave blank if you
+                    want to remain completely anonymous
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">
+                    Email Address <span class="required-mark">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    required
+                    placeholder="your.email@example.com"
+                  />
+                  <div class="form-text">We'll send updates to this email</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">
+                    Phone Number <span class="required-mark">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    name="phone"
+                    required
+                    placeholder="+91 98765 43210"
+                  />
+                  <div class="form-text">For urgent communication</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Complaint Details -->
+            <div class="form-section-card">
+              <div class="section-header">
+                <h4 class="fw-bold mb-1">
+                  <i
+                    class="fas fa-clipboard-list me-2"
+                    style="color: var(--primary-blue)"
+                  ></i
+                  >Complaint Details
+                </h4>
+                <p class="text-muted small mb-0">
+                  Describe the incident in detail
+                </p>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-12">
+                  <label class="form-label">
+                    Complaint Title <span class="required-mark">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="title"
+                    required
+                    placeholder="Brief summary of the incident"
+                  />
+                  <div class="form-text">Keep it concise and clear</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">
+                    Detailed Description <span class="required-mark">*</span>
+                  </label>
+                  <textarea
+                    class="form-control"
+                    name="description"
+                    rows="10"
+                    required
+                    placeholder="Please provide a detailed description of what happened:&#10;&#10;• Date and time of the incident&#10;• Names or descriptions of individuals involved&#10;• Any witnesses present&#10;• Exact location where it occurred&#10;• What was said or done&#10;• Sequence of events&#10;• Any other relevant details"
+                  ></textarea>
+                  <div class="form-text">
+                    <i class="fas fa-lightbulb me-1"></i>Be as detailed as
+                    possible. More information helps us investigate effectively.
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">
+                    Location <span class="required-mark">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="location"
+                    required
+                    placeholder="e.g., Hostel Block A, Room 101"
+                  />
+                  <div class="form-text">Where did this happen?</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">
+                    Severity Level <span class="required-mark">*</span>
+                  </label>
+                  <select class="form-select" name="severity" required>
+                    <option value="">Select severity level</option>
+                    <option value="Low">Low - Verbal/Minor teasing</option>
+                    <option value="Medium">
+                      Medium - Harassment/Intimidation
+                    </option>
+                    <option value="High">
+                      High - Physical violence/Severe abuse
+                    </option>
+                  </select>
+                  <div class="form-text">How serious was the incident?</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: Evidence Upload -->
+            <div class="form-section-card">
+              <div class="section-header">
+                <h4 class="fw-bold mb-1">
+                  <i
+                    class="fas fa-paperclip me-2"
+                    style="color: var(--primary-blue)"
+                  ></i
+                  >Supporting Evidence
+                </h4>
+                <p class="text-muted small mb-0">
+                  Upload photos, videos, or documents (optional but helpful)
+                </p>
+              </div>
+
+              <div class="upload-area">
+                <input
+                  type="file"
+                  class="form-control"
+                  name="evidenceFiles"
+                  id="evidenceFiles"
+                  multiple
+                  accept="image/*,video/*,audio/*,.pdf"
+                />
+                <div>
+                  <i
+                    class="fas fa-cloud-upload-alt fa-4x mb-3"
+                    style="color: var(--primary-blue); opacity: 0.5"
+                  ></i>
+                  <h5 class="fw-bold mb-2">Click to upload files</h5>
+                  <p class="text-muted mb-0">
+                    Images, Videos, Audio, or PDF files<br />
+                    <small>Max 50MB per file • Up to 10 files</small>
+                  </p>
+                </div>
+              </div>
+              <div class="form-text mt-2">
+                <i class="fas fa-info-circle me-1"></i>Evidence strengthens your
+                case. Screenshots, photos, videos, or audio recordings are
+                helpful.
+              </div>
+            </div>
+
+            <!-- Section 4: Privacy Settings -->
+            <div class="form-section-card">
+              <div class="section-header">
+                <h4 class="fw-bold mb-1">
+                  <i
+                    class="fas fa-user-secret me-2"
+                    style="color: var(--primary-blue)"
+                  ></i
+                  >Privacy & Confirmation
+                </h4>
+                <p class="text-muted small mb-0">
+                  Choose your privacy settings and confirm submission
+                </p>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <div
+                    class="card border-0"
+                    style="background: #f8f9fa; border-radius: 10px"
+                  >
+                    <div class="card-body p-4">
+                      <div class="form-check mb-3">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          name="isAnonymous"
+                          id="anonymous"
+                          style="width: 1.2rem; height: 1.2rem"
+                        />
+                        <label class="form-check-label ms-2" for="anonymous">
+                          <strong style="font-size: 1.1rem">
+                            <i
+                              class="fas fa-eye-slash me-2"
+                              style="color: var(--primary-blue)"
+                            ></i
+                            >Submit as Anonymous
+                          </strong>
+                          <p
+                            class="text-muted mb-0 mt-2"
+                            style="margin-left: 2rem"
+                          >
+                            Your name will not be visible to administrators.
+                            Only your email and phone will be recorded for
+                            updates.
+                          </p>
+                        </label>
+                      </div>
+
+                      <hr class="my-3" />
+
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          name="confirmTruthful"
+                          id="confirm"
+                          required
+                          style="width: 1.2rem; height: 1.2rem"
+                        />
+                        <label class="form-check-label ms-2" for="confirm">
+                          <strong style="font-size: 1.1rem">
+                            <i class="fas fa-check-circle me-2 text-success"></i
+                            >I confirm this complaint is truthful
+                            <span class="required-mark">*</span>
+                          </strong>
+                          <p
+                            class="text-muted mb-0 mt-2"
+                            style="margin-left: 2rem"
+                          >
+                            I understand that false or malicious complaints may
+                            lead to disciplinary action. I certify that all
+                            information provided is accurate to the best of my
+                            knowledge.
+                          </p>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+            >
+              <a
+                href="/"
+                class="btn btn-lg px-4"
+                style="
+                  background: #ffc107;
+                  color: #000;
+                  border: none;
+                  border-radius: 10px;
+                  font-weight: 600;
+                "
+              >
+                <i class="fas fa-arrow-left me-2"></i>Cancel
+              </a>
+              <button type="submit" class="btn btn-submit btn-lg">
+                <i class="fas fa-paper-plane me-2"></i>Submit Complaint
+              </button>
+            </div>
+          </form>
+
+          <!-- Emergency Help Section -->
+          <div class="mt-5">
+            <div
+              class="card border-0 shadow-sm"
+              style="
+                border-radius: 15px;
+                background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+                border-left: 5px solid #ffc107 !important;
+              "
+            >
+              <div class="card-body p-4">
+                <h5 class="fw-bold mb-3" style="color: #856404">
+                  <i class="fas fa-exclamation-triangle me-2"></i>Need Immediate
+                  Help?
+                </h5>
+                <p class="mb-3" style="color: #856404">
+                  If you are in immediate danger or need urgent assistance:
+                </p>
+
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <div
+                      class="card border-0 h-100"
+                      style="background: white; border-radius: 10px"
+                    >
+                      <div class="card-body text-center p-3">
+                        <i
+                          class="fas fa-exclamation-triangle fa-2x text-danger mb-2"
+                        ></i>
+                        <h6 class="fw-bold mb-1">Emergency SOS</h6>
+                        <small class="text-muted">Press Red SOS Button</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div
+                      class="card border-0 h-100"
+                      style="background: white; border-radius: 10px"
+                    >
+                      <div class="card-body text-center p-3">
+                        <i class="fas fa-phone fa-2x text-success mb-2"></i>
+                        <h6 class="fw-bold mb-1">UGC Helpline</h6>
+                        <a href="tel:18001805522" class="text-decoration-none"
+                          ><strong>1800-180-5522</strong></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div
+                      class="card border-0 h-100"
+                      style="background: white; border-radius: 10px"
+                    >
+                      <div class="card-body text-center p-3">
+                        <i
+                          class="fas fa-shield-alt fa-2x"
+                          style="color: var(--primary-blue)"
+                          mb-2
+                        ></i>
+                        <h6 class="fw-bold mb-1">Campus Security</h6>
+                        <a href="/contact" class="text-decoration-none"
+                          ><strong>View All Contacts</strong></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/sos.js"></script>
+  </body>
+</html>
